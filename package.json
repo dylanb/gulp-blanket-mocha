@@ -1,0 +1,29 @@
+{
+  "name": "gulp-blanket-mocha",
+  "version": "0.0.1",
+  "description": "Execute blanket coverage on Mocha tests",
+  "main": "gulp-blanket-mocha.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "gulpplugin",
+    "blanket",
+    "mocha"
+  ],
+  "dependencies": {
+    "gulp-util": "~2.2.0",
+    "through": "~2.3.0",
+    "mocha": "~1.16.2",
+    "blanket": "*"
+  },
+  "devDependencies": {
+    "gulp": "~3.2.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dylanb/gulp-blanket-mocha.git"
+  },
+  "author": "dylan@barrell.com",
+  "license": "MIT"
+}
