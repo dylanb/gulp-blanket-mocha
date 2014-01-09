@@ -34,7 +34,3 @@ Your Mocha options for the coverage run
 ### test
 
 Your Mocha options for the test run
-
-## Known problems
-
-Does not work with gulp.watch - this is due to Mocha's resolve caching - don't know how to solve this, if you know, give me a shout
