@@ -1,13 +1,15 @@
 'use strict';
+var requireLike = require('require-like');
 var path = require('path');
 var through = require('through');
 var gutil = require('gulp-util');
-var Mocha = require('mocha');
+var mochaRequire = requireLike(require.resolve('mocha'), true);
 var fs = require('fs');
 var hooker = require('./hooker');
+var blanket = require('blanket');
 
 module.exports = function (options) {
-	var blanket = require('blanket'),
+	var Mocha = mochaRequire('mocha'),
 		test = new Mocha(options && options.test || {}),
 		cover = new Mocha(options && options.coverage || {});
 
