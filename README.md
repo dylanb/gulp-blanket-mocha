@@ -1,21 +1,36 @@
 # Gulp-Blanket-Mocha
+Does a coverage report for Mocha tests
+
 ## Usage
 
     npm install --save-dev gulp-blanket-mocha
+
+To use alone (note that this will also run the tests:
 
     gulp.task('test', function () {
         gulp.src(['tests/**/*.js'], { read: false })
             .pipe(blanket({
                 instrument:['mime/mime.js'],
                 captureFile: 'coverage.html',
-                coverage : {
-                    reporter: 'html-cov'
-                },
-                test : {
-                    reporter: 'spec'
-                }
+                reporter: 'html-cov'
             }));
     });
+
+To use in combination with Mocha tests and a test reporter:
+
+    gulp.task('blanketTest', function () {
+        gulp.src(['src.js'], { read: false })
+            .pipe(mocha({
+                reporter: 'spec'
+            }))
+            .pipe(blanket({
+                instrument:['src.js'],
+                captureFile: 'coverage.html',
+                reporter: 'html-cov'
+            }));
+    });
+
+Note: This will re-run the tests in order to produce the coverage report, so the tests will all run twice.
 
 ## Options
 
@@ -27,10 +42,10 @@ Blanket patterns for the files to instrument. Required.
 
 Output file for the coverage report. Required.
 
-### coverage
+### reporter
 
-Your Mocha options for the coverage run
+Which coverage reporter you want to use
 
-### test
+### ...
 
-Your Mocha options for the test run
+Any other options you want to pass to the Mocha test runner

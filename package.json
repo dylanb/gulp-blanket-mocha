@@ -1,8 +1,8 @@
 {
   "name": "gulp-blanket-mocha",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "Execute blanket coverage on Mocha tests",
-  "main": "gulp-blanket-mocha.js",
+  "main": "gulp-blanket.js",
   "scripts": {
     "test": "test"
   },
