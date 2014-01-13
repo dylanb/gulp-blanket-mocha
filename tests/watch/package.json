@@ -1,0 +1,17 @@
+{
+  "name": "gulp-blanket-mocha-watch-test",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Test the watch functionality with blanket-mocha",
+  "main": "src.js",
+  "keywords": [],
+  "dependencies": {
+    "mocha": "~1.16.2"
+  },
+  "devDependencies": {
+    "gulp-mocha": "*",
+    "gulp": "~3.2.4"
+  },
+  "author": "dylan@barrell.com",
+  "license": "MIT"
+}
