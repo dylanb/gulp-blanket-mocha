@@ -11,12 +11,14 @@ var Duplex = require('stream').Duplex;
 module.exports = function (options) {
     var Mocha = mochaRequire('mocha');
     var duplex = new Duplex({objectMode: true});
+    var stream;
 
     blanket({
         pattern : options.instrument,
         debug: true
     });
     duplex._write = function (file, encoding, done) {
+        stream = this;
         var cover = new Mocha(options);
         delete require.cache[require.resolve(path.resolve(file.path))];
         cover.addFile(file.path);
@@ -50,7 +52,7 @@ module.exports = function (options) {
     };
 
     duplex.on('finish', function () {
-        return;
+      stream.emit('end');
     });
 
     duplex._read = function () {};
